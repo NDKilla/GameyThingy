@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ public class GameController
 {
     public static GameController Ref { get; private set; } = new GameController();
     public Random Random { get; } = new Random();
+    public Stopwatch GameTimer { get; } = Stopwatch.StartNew();
 
     public Creature Player { get; private set; } = new Creature() { Name = "Player" };
     public Creature Monster { get; private set; } = new Creature();
@@ -22,6 +24,8 @@ public class GameController
             if (!Monster.Alive)
             {
                 Console.WriteLine("Monster defeated!");
+                Player.HP = 100;
+                Player.MP = 100;
                 Monster = new Creature();
             }
             else

@@ -21,7 +21,7 @@ public class Creature
                 Strength++;
                 Dexterity++;
                 Intelligence++;
-                Console.WriteLine($"Level reached: {Level}!");
+                Console.WriteLine($"{Name} reached level: {Level}!");
             }
         }
     }
