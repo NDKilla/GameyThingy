@@ -25,7 +25,7 @@ public class Creature
                 Strength++;
                 Dexterity++;
                 Intelligence++;
-                Console.WriteLine($"{Name} reached level: {Level}!");
+                GameController.Ref.OnEventMessage($"{Name} reached level: {Level}!");
             }
         }
     }
@@ -67,7 +67,7 @@ public class Creature
 
     public void Defend(Creature target, decimal damage)
     {
-        Console.WriteLine($"{target.Name} attacked {this.Name} for {damage}!");
+        GameController.Ref.OnEventMessage($"{target.Name} attacked {this.Name} for {damage}!");
         HP -= damage;
         HP = Math.Max(HP, 0);
         if (!Alive)
@@ -89,7 +89,7 @@ public class Creature
         var roll = (decimal)GameController.Ref.Random.NextDouble();
         if (roll < CritChance)
         {
-            Console.WriteLine($"{Name} scored a critical hit!");
+            GameController.Ref.OnEventMessage($"{Name} scored a critical hit!");
             damage *= CritMultiplier;
         }
         return damage;

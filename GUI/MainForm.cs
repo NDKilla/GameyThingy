@@ -11,16 +11,27 @@ public partial class MainForm : Form
         FormClosing += MainForm_FormClosing;
         Shown += MainForm_Shown;
         GameController.Ref.GameTick += Ref_GameTick;
+        GameController.Ref.EventMessage += Ref_EventMessage;
+    }
+
+    private void Ref_EventMessage(object? sender, string e)
+    {
+        this.Invoke(new Action(() =>
+        {
+            richTextBox1.AppendText($"{e}{Environment.NewLine}");
+            richTextBox1.ScrollToCaret();
+        }));
     }
 
     private void MainForm_FormClosing(object? sender, FormClosingEventArgs e)
     {
         GameController.Ref.GameTick -= Ref_GameTick;
+        GameController.Ref.EventMessage -= Ref_EventMessage;
 
         GameController.Ref.Exiting = true;
     }
 
-    private void Ref_GameTick(object? sender, EventArgs e)
+    private void Ref_GameTick(object? sender, double e)
     {
         GameController copy = GameController.Ref;
         BeginInvoke(new Action(() =>

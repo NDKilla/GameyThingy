@@ -9,15 +9,24 @@ namespace CoreLibrary;
 public class GameController
 {
     public static GameController Ref { get; private set; } = new GameController();
-    public delegate void GameTickEventHandler(object sender, EventArgs args);
-    public event EventHandler? GameTick;
-    protected virtual void OnGameTick(EventArgs e)
+    public event EventHandler<double>? GameTick;
+    protected virtual void OnGameTick()
     {
-        EventHandler? gameTickCopy = GameTick;
+        EventHandler<double>? gameTickCopy = GameTick;
         
         if (gameTickCopy != null)
         {
-            gameTickCopy(this, e);
+            gameTickCopy(this, GameTimer.Elapsed.TotalMilliseconds);
+        }
+    }
+    public event EventHandler<string>? EventMessage;
+    internal virtual void OnEventMessage(string e)
+    {
+        EventHandler<string>? eventMessageCopy = EventMessage;
+
+        if (eventMessageCopy != null)
+        {
+            eventMessageCopy(this, e);
         }
     }
     public Random Random { get; } = new Random();
@@ -36,7 +45,7 @@ public class GameController
             }
             if (!Monster.Alive)
             {
-                Console.WriteLine("Monster defeated!");
+                OnEventMessage("Monster defeated!");
                 Player.HP = 100;
                 Player.MP = 100;
                 Monster = new Creature();
@@ -52,12 +61,12 @@ public class GameController
             if (!Player.Alive)
             {
                 var xpLoss = (long)(Player.XP * 0.1);
-                Console.WriteLine($"Player defeated! Losing {xpLoss} XP!");
+                OnEventMessage($"Player defeated! Losing {xpLoss} XP!");
                 Player.XP -= xpLoss;
                 Player.HP = 100;
                 Player.MP = 100;
             }
-            OnGameTick(EventArgs.Empty);
+            OnGameTick();
             Thread.Sleep(15);
         }
     }
