@@ -9,12 +9,23 @@ namespace CoreLibrary;
 public class GameController
 {
     public static GameController Ref { get; private set; } = new GameController();
+    public delegate void GameTickEventHandler(object sender, EventArgs args);
+    public event EventHandler? GameTick;
+    protected virtual void OnGameTick(EventArgs e)
+    {
+        EventHandler? gameTickCopy = GameTick;
+        
+        if (gameTickCopy != null)
+        {
+            gameTickCopy(this, e);
+        }
+    }
     public Random Random { get; } = new Random();
     public Stopwatch GameTimer { get; } = Stopwatch.StartNew();
 
     public Creature Player { get; private set; } = new Creature() { Name = "Player", AttackSpeed = 0.66 };
     public Creature Monster { get; private set; } = new Creature();
-    public bool Exiting { get; private set; } = false;
+    public bool Exiting { get; set; } = false;
     public void MainLoop()
     {
         while (!Exiting)
@@ -46,6 +57,7 @@ public class GameController
                 Player.HP = 100;
                 Player.MP = 100;
             }
+            OnGameTick(EventArgs.Empty);
             Thread.Sleep(15);
         }
     }

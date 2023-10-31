@@ -9,6 +9,8 @@ public class Creature
     public decimal MP { get; set; } = 100;
     public string Name { get; set; } = "Monster";
     public long Level { get; set; } = 1;
+    public long SkillPoints { get; set; } = 0;
+
     private long xp = 0;
     public long XP
     {
