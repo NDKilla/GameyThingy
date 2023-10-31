@@ -1,4 +1,6 @@
-﻿namespace CoreLibrary;
+﻿using System.Diagnostics;
+
+namespace CoreLibrary;
 
 public class Creature
 {
@@ -35,11 +37,30 @@ public class Creature
     public decimal CritChance => (decimal)(Dexterity * 0.01);
     public decimal CritMultiplier => (decimal)((200 + Dexterity * 5) * 0.01);
 
+    public double AttackSpeed { get; set; } = 0.5; // Attacks per second.
+    public double NextAttack { get; set; }
+
+    public bool AttackReady()
+    {
+        return GameController.Ref.GameTimer.Elapsed.TotalMilliseconds > NextAttack;
+    }
+
+    public double CalculateNextAttack()
+    {
+        // Inverse attack speed to get millisecond delay between attacks.
+        double attackDelay = 1000 / AttackSpeed;
+        Debug.Print($"({Name}) attack delay: ({attackDelay}) ms");
+        // Hard-cap between 0.25 attacks per second and the game tick rate.
+        attackDelay = Math.Max(15, Math.Min(attackDelay, 4000));
+        return GameController.Ref.GameTimer.Elapsed.TotalMilliseconds + attackDelay;
+    }
+
     public void Attack(Creature target)
     {
         var damage = GetDamage();
         damage = GetCritDamage(damage);
         target.Defend(this, damage);
+        NextAttack = CalculateNextAttack();
     }
 
     public void Defend(Creature target, decimal damage)
@@ -58,7 +79,7 @@ public class Creature
         // ToDo: bigger numbers
         var r1 = GameController.Ref.Random.Next((int)Strength);
         var r2 = GameController.Ref.Random.Next((int)Strength);
-        return 1 + r1 + r2;
+        return (int)Strength + r1;// + r2;
     }
 
     private decimal GetCritDamage(decimal damage)
