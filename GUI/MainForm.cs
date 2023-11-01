@@ -46,6 +46,7 @@ public partial class MainForm : Form
             textBox8.Text = copy.Player.CritChance.ToString();
             textBox9.Text = copy.Player.CritMultiplier.ToString();
             textBox10.Text = copy.Player.AttackSpeed.ToString();
+            textBox21.Text = copy.Player.SkillPoints.ToString();
 
 
             textBox20.Text = copy.Monster.HP.ToString();
@@ -66,5 +67,13 @@ public partial class MainForm : Form
 
         gameThread = new Thread(GameController.Ref.MainLoop);
         gameThread.Start();
+        button1.Click += (o, e) => { GameController.Ref.Player.LevelHP(); };
+        button5.Click += (o, e) => { GameController.Ref.Player.LevelStrength(); };
+        button6.Click += (o, e) => { GameController.Ref.Player.LevelDexterity(); };
+        button7.Click += (o, e) => { GameController.Ref.Player.LevelIntelligence(); };
+        button8.Click += (o, e) => { GameController.Ref.Player.LevelCritChance(); };
+        button9.Click += (o, e) => { GameController.Ref.Player.LevelCritMultiplier(); };
+        button10.Click += (o, e) => { GameController.Ref.Player.LevelAttackSpeed(); };
+
     }
 }

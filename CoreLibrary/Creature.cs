@@ -6,7 +6,17 @@ public class Creature
 {
     // Core
     public decimal HP { get; set; } = 100;
+    public decimal MaxHP { get; set; } = 100;
+    public void LevelHP()
+    {
+        if (SkillPoints > 0)
+        {
+            MaxHP += 10;
+            SkillPoints--;
+        }
+    }
     public decimal MP { get; set; } = 100;
+    public decimal MaxMP { get; set; } = 100;
     public string Name { get; set; } = "Monster";
     public long Level { get; set; } = 1;
     public long SkillPoints { get; set; } = 0;
@@ -22,9 +32,10 @@ public class Creature
             {
                 xp = 0;
                 Level++;
-                Strength++;
-                Dexterity++;
-                Intelligence++;
+                SkillPoints++;
+                //Strength++;
+                //Dexterity++;
+                //Intelligence++;
                 GameController.Ref.OnEventMessage($"{Name} reached level: {Level}!");
             }
         }
@@ -33,13 +44,64 @@ public class Creature
 
     // Attributes
     public long Strength { get; set; } = 5;
+    public void LevelStrength()
+    {
+        if (SkillPoints > 0)
+        {
+            Strength++;
+            SkillPoints--;
+        }
+    }
     public long Dexterity { get; set; } = 5;
+    public void LevelDexterity()
+    {
+        if (SkillPoints > 0)
+        {
+            Dexterity++;
+            SkillPoints--;
+        }
+    }
     public long Intelligence { get; set; } = 5;
+    public void LevelIntelligence()
+    {
+        if (SkillPoints > 0)
+        {
+            Intelligence++;
+            SkillPoints--;
+        }
+    }
 
-    public decimal CritChance => (decimal)(Dexterity * 0.01);
-    public decimal CritMultiplier => (decimal)((200 + Dexterity * 5) * 0.01);
+    public decimal CritChance => (decimal)((5 + Dexterity * 0.025 + CritChanceLevel * 0.1) * 0.01);
+    public long CritChanceLevel = 0;
+    public void LevelCritChance()
+    {
+        if (SkillPoints > 0)
+        {
+            CritChanceLevel++;
+            SkillPoints--;
+        }
+    }
+    public decimal CritMultiplier => (decimal)((150 + Dexterity * 1 + CritMultiplierLevel * 5) * 0.01);
+    public long CritMultiplierLevel = 0;
+    public void LevelCritMultiplier()
+    {
+        if (SkillPoints > 0)
+        {
+            CritMultiplierLevel++;
+            SkillPoints--;
+        }
+    }
 
-    public double AttackSpeed { get; set; } = 0.5; // Attacks per second.
+    public double AttackSpeed => 0.2d + Dexterity * 0.05 + AttackSpeedLevel * 0.1; // Attacks per second.
+    public double AttackSpeedLevel = 0;
+    public void LevelAttackSpeed()
+    {
+        if (SkillPoints > 0)
+        {
+            AttackSpeedLevel++;
+            SkillPoints--;
+        }
+    }
     public double NextAttack { get; set; }
 
     public bool AttackReady()

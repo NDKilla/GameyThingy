@@ -32,7 +32,7 @@ public class GameController
     public Random Random { get; } = new Random();
     public Stopwatch GameTimer { get; } = Stopwatch.StartNew();
 
-    public Creature Player { get; private set; } = new Creature() { Name = "Player", AttackSpeed = 0.66 };
+    public Creature Player { get; private set; } = new Creature() { Name = "Player" };
     public Creature Monster { get; private set; } = new Creature();
     public bool Exiting { get; set; } = false;
     public void MainLoop()
@@ -46,8 +46,8 @@ public class GameController
             if (!Monster.Alive)
             {
                 OnEventMessage("Monster defeated!");
-                Player.HP = 100;
-                Player.MP = 100;
+                Player.HP = Player.MaxHP;
+                Player.MP = Player.MaxMP;
                 Monster = new Creature();
                 Monster.NextAttack = Monster.CalculateNextAttack();
             }

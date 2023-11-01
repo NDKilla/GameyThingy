@@ -69,6 +69,18 @@ partial class MainForm
         textBox20 = new TextBox();
         label20 = new Label();
         richTextBox1 = new RichTextBox();
+        button1 = new Button();
+        textBox21 = new TextBox();
+        label21 = new Label();
+        button2 = new Button();
+        button3 = new Button();
+        button4 = new Button();
+        button5 = new Button();
+        button6 = new Button();
+        button7 = new Button();
+        button8 = new Button();
+        button9 = new Button();
+        button10 = new Button();
         SuspendLayout();
         // 
         // label1
@@ -243,14 +255,14 @@ partial class MainForm
         // 
         // textBox11
         // 
-        textBox11.Location = new Point(276, 271);
+        textBox11.Location = new Point(313, 274);
         textBox11.Name = "textBox11";
         textBox11.Size = new Size(100, 23);
         textBox11.TabIndex = 39;
         // 
         // label11
         // 
-        label11.Location = new Point(197, 270);
+        label11.Location = new Point(234, 273);
         label11.Margin = new Padding(3);
         label11.Name = "label11";
         label11.Size = new Size(73, 23);
@@ -260,14 +272,14 @@ partial class MainForm
         // 
         // textBox12
         // 
-        textBox12.Location = new Point(276, 242);
+        textBox12.Location = new Point(313, 245);
         textBox12.Name = "textBox12";
         textBox12.Size = new Size(100, 23);
         textBox12.TabIndex = 37;
         // 
         // label12
         // 
-        label12.Location = new Point(197, 241);
+        label12.Location = new Point(234, 244);
         label12.Margin = new Padding(3);
         label12.Name = "label12";
         label12.Size = new Size(73, 23);
@@ -277,14 +289,14 @@ partial class MainForm
         // 
         // textBox13
         // 
-        textBox13.Location = new Point(276, 213);
+        textBox13.Location = new Point(313, 216);
         textBox13.Name = "textBox13";
         textBox13.Size = new Size(100, 23);
         textBox13.TabIndex = 35;
         // 
         // label13
         // 
-        label13.Location = new Point(197, 212);
+        label13.Location = new Point(234, 215);
         label13.Margin = new Padding(3);
         label13.Name = "label13";
         label13.Size = new Size(73, 23);
@@ -294,14 +306,14 @@ partial class MainForm
         // 
         // textBox14
         // 
-        textBox14.Location = new Point(276, 184);
+        textBox14.Location = new Point(313, 187);
         textBox14.Name = "textBox14";
         textBox14.Size = new Size(100, 23);
         textBox14.TabIndex = 33;
         // 
         // label14
         // 
-        label14.Location = new Point(197, 183);
+        label14.Location = new Point(234, 186);
         label14.Margin = new Padding(3);
         label14.Name = "label14";
         label14.Size = new Size(73, 23);
@@ -311,14 +323,14 @@ partial class MainForm
         // 
         // textBox15
         // 
-        textBox15.Location = new Point(276, 155);
+        textBox15.Location = new Point(313, 158);
         textBox15.Name = "textBox15";
         textBox15.Size = new Size(100, 23);
         textBox15.TabIndex = 31;
         // 
         // label15
         // 
-        label15.Location = new Point(197, 154);
+        label15.Location = new Point(234, 157);
         label15.Margin = new Padding(3);
         label15.Name = "label15";
         label15.Size = new Size(73, 23);
@@ -328,14 +340,14 @@ partial class MainForm
         // 
         // textBox16
         // 
-        textBox16.Location = new Point(276, 126);
+        textBox16.Location = new Point(313, 129);
         textBox16.Name = "textBox16";
         textBox16.Size = new Size(100, 23);
         textBox16.TabIndex = 29;
         // 
         // label16
         // 
-        label16.Location = new Point(197, 125);
+        label16.Location = new Point(234, 128);
         label16.Margin = new Padding(3);
         label16.Name = "label16";
         label16.Size = new Size(73, 23);
@@ -345,14 +357,14 @@ partial class MainForm
         // 
         // textBox17
         // 
-        textBox17.Location = new Point(276, 97);
+        textBox17.Location = new Point(313, 100);
         textBox17.Name = "textBox17";
         textBox17.Size = new Size(100, 23);
         textBox17.TabIndex = 27;
         // 
         // label17
         // 
-        label17.Location = new Point(197, 96);
+        label17.Location = new Point(234, 99);
         label17.Margin = new Padding(3);
         label17.Name = "label17";
         label17.Size = new Size(73, 23);
@@ -362,14 +374,14 @@ partial class MainForm
         // 
         // textBox18
         // 
-        textBox18.Location = new Point(276, 68);
+        textBox18.Location = new Point(313, 71);
         textBox18.Name = "textBox18";
         textBox18.Size = new Size(100, 23);
         textBox18.TabIndex = 25;
         // 
         // label18
         // 
-        label18.Location = new Point(197, 67);
+        label18.Location = new Point(234, 70);
         label18.Margin = new Padding(3);
         label18.Name = "label18";
         label18.Size = new Size(73, 23);
@@ -379,14 +391,14 @@ partial class MainForm
         // 
         // textBox19
         // 
-        textBox19.Location = new Point(276, 39);
+        textBox19.Location = new Point(313, 42);
         textBox19.Name = "textBox19";
         textBox19.Size = new Size(100, 23);
         textBox19.TabIndex = 23;
         // 
         // label19
         // 
-        label19.Location = new Point(197, 38);
+        label19.Location = new Point(234, 41);
         label19.Margin = new Padding(3);
         label19.Name = "label19";
         label19.Size = new Size(73, 23);
@@ -396,14 +408,14 @@ partial class MainForm
         // 
         // textBox20
         // 
-        textBox20.Location = new Point(276, 10);
+        textBox20.Location = new Point(313, 13);
         textBox20.Name = "textBox20";
         textBox20.Size = new Size(100, 23);
         textBox20.TabIndex = 21;
         // 
         // label20
         // 
-        label20.Location = new Point(197, 9);
+        label20.Location = new Point(234, 12);
         label20.Margin = new Padding(3);
         label20.Name = "label20";
         label20.Size = new Size(73, 23);
@@ -413,17 +425,146 @@ partial class MainForm
         // 
         // richTextBox1
         // 
-        richTextBox1.Location = new Point(382, 9);
+        richTextBox1.Location = new Point(419, 12);
         richTextBox1.Name = "richTextBox1";
         richTextBox1.Size = new Size(406, 285);
         richTextBox1.TabIndex = 40;
         richTextBox1.Text = "";
         // 
+        // button1
+        // 
+        button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+        button1.Location = new Point(197, 10);
+        button1.Name = "button1";
+        button1.Size = new Size(31, 23);
+        button1.TabIndex = 41;
+        button1.Text = "+";
+        button1.UseVisualStyleBackColor = true;
+        // 
+        // textBox21
+        // 
+        textBox21.Location = new Point(91, 300);
+        textBox21.Name = "textBox21";
+        textBox21.Size = new Size(100, 23);
+        textBox21.TabIndex = 43;
+        // 
+        // label21
+        // 
+        label21.Location = new Point(12, 299);
+        label21.Margin = new Padding(3);
+        label21.Name = "label21";
+        label21.Size = new Size(73, 23);
+        label21.TabIndex = 42;
+        label21.Text = "Skill Points";
+        label21.TextAlign = ContentAlignment.MiddleLeft;
+        // 
+        // button2
+        // 
+        button2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+        button2.Location = new Point(197, 39);
+        button2.Name = "button2";
+        button2.Size = new Size(31, 23);
+        button2.TabIndex = 44;
+        button2.Text = "+";
+        button2.UseVisualStyleBackColor = true;
+        // 
+        // button3
+        // 
+        button3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+        button3.Location = new Point(197, 70);
+        button3.Name = "button3";
+        button3.Size = new Size(31, 23);
+        button3.TabIndex = 45;
+        button3.Text = "+";
+        button3.UseVisualStyleBackColor = true;
+        // 
+        // button4
+        // 
+        button4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+        button4.Location = new Point(197, 100);
+        button4.Name = "button4";
+        button4.Size = new Size(31, 23);
+        button4.TabIndex = 46;
+        button4.Text = "+";
+        button4.UseVisualStyleBackColor = true;
+        // 
+        // button5
+        // 
+        button5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+        button5.Location = new Point(197, 129);
+        button5.Name = "button5";
+        button5.Size = new Size(31, 23);
+        button5.TabIndex = 47;
+        button5.Text = "+";
+        button5.UseVisualStyleBackColor = true;
+        // 
+        // button6
+        // 
+        button6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+        button6.Location = new Point(197, 154);
+        button6.Name = "button6";
+        button6.Size = new Size(31, 23);
+        button6.TabIndex = 48;
+        button6.Text = "+";
+        button6.UseVisualStyleBackColor = true;
+        // 
+        // button7
+        // 
+        button7.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+        button7.Location = new Point(197, 183);
+        button7.Name = "button7";
+        button7.Size = new Size(31, 23);
+        button7.TabIndex = 49;
+        button7.Text = "+";
+        button7.UseVisualStyleBackColor = true;
+        // 
+        // button8
+        // 
+        button8.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+        button8.Location = new Point(197, 212);
+        button8.Name = "button8";
+        button8.Size = new Size(31, 23);
+        button8.TabIndex = 50;
+        button8.Text = "+";
+        button8.UseVisualStyleBackColor = true;
+        // 
+        // button9
+        // 
+        button9.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+        button9.Location = new Point(197, 245);
+        button9.Name = "button9";
+        button9.Size = new Size(31, 23);
+        button9.TabIndex = 51;
+        button9.Text = "+";
+        button9.UseVisualStyleBackColor = true;
+        // 
+        // button10
+        // 
+        button10.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+        button10.Location = new Point(197, 273);
+        button10.Name = "button10";
+        button10.Size = new Size(31, 23);
+        button10.TabIndex = 52;
+        button10.Text = "+";
+        button10.UseVisualStyleBackColor = true;
+        // 
         // MainForm
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(800, 304);
+        ClientSize = new Size(1227, 442);
+        Controls.Add(button10);
+        Controls.Add(button9);
+        Controls.Add(button8);
+        Controls.Add(button7);
+        Controls.Add(button6);
+        Controls.Add(button5);
+        Controls.Add(button4);
+        Controls.Add(button3);
+        Controls.Add(button2);
+        Controls.Add(textBox21);
+        Controls.Add(label21);
+        Controls.Add(button1);
         Controls.Add(richTextBox1);
         Controls.Add(textBox11);
         Controls.Add(label11);
@@ -514,4 +655,16 @@ partial class MainForm
     private TextBox textBox20;
     private Label label20;
     private RichTextBox richTextBox1;
+    private Button button1;
+    private TextBox textBox21;
+    private Label label21;
+    private Button button2;
+    private Button button3;
+    private Button button4;
+    private Button button5;
+    private Button button6;
+    private Button button7;
+    private Button button8;
+    private Button button9;
+    private Button button10;
 }
