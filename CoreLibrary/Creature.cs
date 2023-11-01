@@ -4,19 +4,51 @@ namespace CoreLibrary;
 
 public class Creature
 {
+    public Creature()
+    {
+        if (GameController.Ref?.Player == null)
+        {
+            return;
+        }
+
+        Creature player = GameController.Ref.Player;
+
+        Level = GameController.Ref.Random.Next(Math.Max(1, (int)player.Level - 5), (int)player.Level + 5);
+
+        HPLevel = 100 + GameController.Ref.Random.Next(0, (int)Level / 50 * 10);
+        MPLevel = 100 + GameController.Ref.Random.Next(0, (int)Level / 50 * 10);
+        Strength = 5 + GameController.Ref.Random.Next(0, (int)Level / 10);
+        Dexterity = 5 + GameController.Ref.Random.Next(0, (int)Level / 10);
+        CritChanceLevel = 5 + GameController.Ref.Random.Next(0, (int)Level / 10);
+        CritMultiplierLevel = 5 + GameController.Ref.Random.Next(0, (int)Level / 10);
+
+        HP = MaxHP;
+        MP = MaxMP;
+    }
+
     // Core
     public decimal HP { get; set; } = 100;
-    public decimal MaxHP { get; set; } = 100;
+    public decimal MaxHP => (decimal)(100 + Math.Pow(Level * 10, 1.001) + HPLevel * 10);
+    public long HPLevel { get; set; } = 0;
     public void LevelHP()
     {
         if (SkillPoints > 0)
         {
-            MaxHP += 10;
+            HPLevel++;
             SkillPoints--;
         }
     }
     public decimal MP { get; set; } = 100;
-    public decimal MaxMP { get; set; } = 100;
+    public decimal MaxMP => (decimal)(100 + (Math.Pow(Level * 10, 1.0001)) + MPLevel * 10);
+    public long MPLevel { get; set; } = 0;
+    public void LevelMP()
+    {
+        if (SkillPoints > 0)
+        {
+            MPLevel++;
+            SkillPoints--;
+        }
+    }
     public string Name { get; set; } = "Monster";
     public long Level { get; set; } = 1;
     public long SkillPoints { get; set; } = 0;
@@ -113,10 +145,15 @@ public class Creature
     {
         // Inverse attack speed to get millisecond delay between attacks.
         double attackDelay = 1000 / AttackSpeed;
-        Debug.Print($"({Name}) attack delay: ({attackDelay}) ms");
+        //Debug.Print($"({Name}) attack delay: ({attackDelay}) ms");
         // Hard-cap between 0.25 attacks per second and the game tick rate.
         attackDelay = Math.Max(15, Math.Min(attackDelay, 4000));
-        return GameController.Ref.GameTimer.Elapsed.TotalMilliseconds + attackDelay;
+        var nextAttack = GameController.Ref.GameTimer.Elapsed.TotalMilliseconds + attackDelay;
+        if (Name == "Player")
+        {
+            Debug.Print($"Next player attack time: {nextAttack}");
+        }
+        return nextAttack;
     }
 
     public void Attack(Creature target)

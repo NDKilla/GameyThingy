@@ -63,8 +63,8 @@ public class GameController
                 var xpLoss = (long)(Player.XP * 0.1);
                 OnEventMessage($"Player defeated! Losing {xpLoss} XP!");
                 Player.XP -= xpLoss;
-                Player.HP = 100;
-                Player.MP = 100;
+                Player.HP = Player.MaxHP;
+                Player.MP = Player.MaxMP;
             }
             OnGameTick();
             Thread.Sleep(15);
