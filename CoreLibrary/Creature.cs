@@ -103,7 +103,7 @@ public class Creature
         }
     }
 
-    public decimal CritChance => (decimal)((5 + Dexterity * 0.025 + CritChanceLevel * 0.1) * 0.01);
+    public decimal CritChance => (decimal)Math.Min((5 + Dexterity * 0.025 + CritChanceLevel * 0.1) * 0.01, 1);
     public long CritChanceLevel = 0;
     public void LevelCritChance()
     {
@@ -124,7 +124,7 @@ public class Creature
         }
     }
 
-    public double AttackSpeed => 0.2d + Dexterity * 0.05 + AttackSpeedLevel * 0.1; // Attacks per second.
+    public double AttackSpeed => Math.Min(0.2d + Dexterity * 0.05 + AttackSpeedLevel * 0.1, 15); // Attacks per second.
     public double AttackSpeedLevel = 0;
     public void LevelAttackSpeed()
     {
